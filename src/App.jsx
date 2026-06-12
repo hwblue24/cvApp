@@ -1,14 +1,17 @@
 import {useState} from 'react';
 
-function InputCards({outPut}) {
+function InputCards({title, Info}) {
   const [submit, setSubmit] = useState(0);
   const isSubmit = (submit === 0)
 
+  const contactInputs = Info.map(field => <input placeholder={field}></input>)
+  const contactList = Info.map(field => <li>{field}</li>)
+
   return (
     <>
-    <h1>{outPut.title}</h1>
+    <h1>{title}</h1>
 
-    {isSubmit ? outPut.inputs : outPut.list}
+    {isSubmit ? contactInputs : contactList}
 
     <button onClick = {()=>setSubmit(0)}>
       Edit
@@ -21,53 +24,23 @@ function InputCards({outPut}) {
 
 
 function App () {
+  const contactFields = ["name","email","phone"]
+  const educationFields = ["school name","degree","graduation","GPA"]
+  
+
   return (
     <>
     <InputCards 
-      outPut = {{
-        title:'Personal Information',
-        inputs: 
-        <div>
-          <input type="text" placeholder="name" />
-          <input type="text" placeholder="age" />
-          <input type="text" placeholder="birth"/>
-        </div>,
-        list: 
-        <ol>
-          <li>name</li>
-          <li>age</li>
-          <li>birth</li>
-        </ol>
-      
-
-      }}
-      
+    title= "Personal Information"
+    Info = {contactFields}
     />
 
-<InputCards 
-      outPut = {{
-        title:'Work Information',
-        inputs: 
-        <div>
-          <input type="text" placeholder="Job" />
-          <input type="text" placeholder="start" />
-          <input type="text" placeholder="end"/>
-        </div>,
-        list: 
-        <ol>
-          <li>job</li>
-          <li>start</li>
-          <li>end</li>
-        </ol>
-      
-
-      }}
-   
+    <InputCards 
+    title = "Educational Experience"
+    Info = {educationFields}
     />
-
-
-  </>
-  );
+    </>
+  )
 }
 
 export default App
