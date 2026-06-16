@@ -12,19 +12,36 @@ function InputCards({title, Info}) {
     const isSubmit = (submit === 0)
   
     const infoInputs = Info.map(field => <input name={field} placeholder={field} value = {text[field]} onChange = {(e) => setText({...text,[e.target.name]:e.target.value})} ></input>)
-    const infoList = Info.map(field => <li>{text[field]}</li>)
+    const infoList = Info.map(field => <div>{text[field]}</div>)
   
     return (
       <>
-      <h1>{title}</h1>
-  
-      {isSubmit ? infoInputs : infoList}
-  
-      <button onClick = {()=>setSubmit(0)}>
-        Edit
-      </button>
-      <button onClick ={()=>setSubmit(1)}>
-        Submit</button>
+      <div className = {title}>
+        <div className='Title'>
+          <h1>{title}</h1>
+        </div>
+        {isSubmit ? 
+        <div>
+          {infoInputs}
+        </div> : 
+        <div>
+          {infoList}
+        </div>
+        }
+
+        <div className = "buttons">
+          <div>
+          <button onClick = {()=>setSubmit(0)}>
+            Edit
+          </button>
+          </div>
+
+          <div>
+          <button onClick ={()=>setSubmit(1)}>
+            Submit</button>
+          </div>
+        </div>
+      </div>
       </>
     )
   }
