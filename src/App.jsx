@@ -2,9 +2,9 @@ import InputCards from "./Components/InputCards"
 
 function App () {
 
-  const contactFields = ["name","email","phone"]
+  const contactFields = ["name","email","phone" , "linkedin"]
   const educationFields = ["school name","degree","graduation","GPA"]
-  const practicalExperience = ["company name","position","title","responsibilities","years worked","final date worked"]
+  const practicalExperience = ["company name","position","responsibilities","responsibilities1","responsibilities2","start-date", "end-date"]
   
 
   return (
@@ -15,12 +15,12 @@ function App () {
     />
 
     <InputCards 
-    title = "Educational Experience"
+    title = "Education"
     Info = {educationFields}
     />
 
 <InputCards
-    title = "Work Experience"
+    title = "Work History"
     Info = {practicalExperience}
     />
     </>

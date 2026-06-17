@@ -1,5 +1,83 @@
 body {
     display:flex;
     justify-content: center;
+    padding:10px 30% 10px 30%;
+
 }
 
+.inputBoxes {
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    border-radius: 10px;
+    padding:20px;
+    margin:10px;
+    
+}
+
+.inputs {
+    display:flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    gap:10px;
+    padding:2%;
+}
+
+.contentInfo {
+    display:grid; 
+    gap:20px;
+    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "start-date end-date      position"
+    ".          .             company "
+    ".          .     responsibilities"
+    ".          .     responsibilities1"
+    ".          .     responsibilities2"
+    ;
+    
+}
+
+.start-date {
+    grid-area:start-date;
+}
+
+.end-date {
+    grid-area:end-date;
+}
+
+.position {
+    grid-area:position;
+    font-size: larger;
+}
+
+.company-name {
+    grid-area:company
+}
+
+.responsibilities {
+    grid-area:responsibilities;
+
+}
+.responsibilities1 {
+    grid-area:responsibilities1;
+    
+}
+.responsibilities2 {
+    grid-area:responsibilities2;
+    
+}
+
+
+
+.buttons {
+    margin-left: auto;
+    display:flex;
+}
+
+.resumeTitle {
+    display:flex;
+    justify-content: center;
+    padding:10px;
+
+}

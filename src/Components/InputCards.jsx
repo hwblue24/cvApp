@@ -12,37 +12,43 @@ function InputCards({title, Info}) {
     const isSubmit = (submit === 0)
   
     const infoInputs = Info.map(field => <input name={field} placeholder={field} value = {text[field]} onChange = {(e) => setText({...text,[e.target.name]:e.target.value})} ></input>)
-    const infoList = Info.map(field => <div>{text[field]}</div>)
+    const infoList = Info.map(field => <div className={field.replace(' ','-')}>{text[field]}</div>)
   
     return (
-      <>
-      <div className = {title}>
-        <div className='Title'>
-          <h1>{title}</h1>
-        </div>
-        {isSubmit ? 
-        <div>
-          {infoInputs}
-        </div> : 
-        <div>
-          {infoList}
-        </div>
-        }
+      
+      <div className='cvCards'>
 
-        <div className = "buttons">
-          <div>
-          <button onClick = {()=>setSubmit(0)}>
-            Edit
-          </button>
+        <div className = "resumeTitle" >
+          <h1>{!isSubmit && text['name'] ? text['name'] : title}</h1>
+        </div>
+
+        <div className = "inputBoxes">
+          
+          {isSubmit ? 
+          <div className='inputs'>
+            {infoInputs}
+          </div> : 
+          <div className='contentInfo'>
+            {infoList}
+          </div>
+          }
+
+          <div className = "buttons">
+            <div>
+            <button onClick = {()=>setSubmit(0)}>
+              Edit
+            </button>
+            </div>
+            <div>
+            <button onClick ={()=>setSubmit(1)}>
+              Submit</button>
+            </div>
+
           </div>
 
-          <div>
-          <button onClick ={()=>setSubmit(1)}>
-            Submit</button>
-          </div>
         </div>
+
       </div>
-      </>
     )
   }
   
