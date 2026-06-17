@@ -1,8 +1,23 @@
 body {
-    display:flex;
+    display: flex;
     justify-content: center;
-    padding:10px 30% 10px 30%;
+    background-color: #f5f5f5; /* Optional: giving the background a soft color makes your white cards pop */
+    margin: 0;
+    padding: 20px; /* Small padding just so your cards don't touch the screen edges on mobile */
+}
 
+/* This is the missing link container from App.jsx that stacks your cards vertically */
+.cvCards {
+    width: 100%;
+    max-width: 750px;          /* Prevents the resume from getting too wide on desktop screens */
+    display: flex;
+    flex-direction: column;    /* Forces your cards to stack vertically */
+    gap: 20px;                 /* Adds clean spacing between each card component */
+}
+
+.resumeTitle {
+    border-bottom: 2px solid black;
+    
 }
 
 .inputBoxes {
@@ -10,15 +25,13 @@ body {
     flex-direction: column;
     gap:10px;
     border-radius: 10px;
-    padding:20px;
-    margin:10px;
+    
     
 }
 
 .inputs {
     display:flex;
     flex-wrap: wrap;
-    border: 2px solid black;
     gap:10px;
     padding:2%;
 }
@@ -26,16 +39,26 @@ body {
 .contentInfo {
     display:grid; 
     gap:20px;
-    grid-template-columns: 1fr 1fr 4fr;
-    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 5fr;
+    ;
+    
+}
+
+.personal-information {
+    display:flex;
+    justify-content: center;
+    
+}
+
+
+/*work history grid layout*/
+.work-history {
     grid-template-areas: 
     "start-date end-date      position"
     ".          .             company "
     ".          .     responsibilities"
     ".          .     responsibilities1"
     ".          .     responsibilities2"
-    ;
-    
 }
 
 .start-date {
@@ -68,6 +91,33 @@ body {
     
 }
 
+.education {
+    grid-template-areas:
+    "graduation .                degree"
+    ".          .            university"
+    ".          .                   GPA"
+    ".          .     responsibilities1"
+    ".          .     responsibilities2"
+}
+
+.graduation {
+    grid-area:graduation;
+}
+
+.degree {
+    grid-area:degree;
+}
+
+.university {
+    grid-area:university;
+}
+
+.GPA {
+    grid-area:GPA;
+}
+
+
+
 
 
 .buttons {
@@ -77,7 +127,7 @@ body {
 
 .resumeTitle {
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding:10px;
 
 }

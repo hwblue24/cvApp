@@ -21,14 +21,13 @@ function InputCards({title, Info}) {
         <div className = "resumeTitle" >
           <h1>{!isSubmit && text['name'] ? text['name'] : title}</h1>
         </div>
-
         <div className = "inputBoxes">
           
           {isSubmit ? 
           <div className='inputs'>
             {infoInputs}
           </div> : 
-          <div className='contentInfo'>
+          <div className={`contentInfo ${title.toLowerCase().replace(' ', '-')}`}>
             {infoList}
           </div>
           }
